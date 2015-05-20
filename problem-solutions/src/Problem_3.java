@@ -6,10 +6,10 @@ import static Utils.MathUtils.isPerfectSquare;
 
 /**
  * Problem 3: Largest prime factor
- *
+ * <p>
  * The prime factors of 13195 are 5, 7, 13 and 29.
  * What is the largest prime factor of the number 600851475143 ?
- *
+ * <p>
  * Created by thomasalm on 01/04/15.
  */
 public class Problem_3 {
@@ -26,14 +26,15 @@ public class Problem_3 {
 
     /**
      * Brute force
+     *
      * @param n
      * @return
      */
     public static Long primeFactor(Long n) {
         List<Long> factors = new ArrayList<>();
         Long d = 2L;
-        while(n > 1){
-            while(n % d == 0){
+        while (n > 1) {
+            while (n % d == 0) {
                 factors.add(d);
                 n /= d;
             }
@@ -45,15 +46,15 @@ public class Problem_3 {
     /**
      * http://en.wikipedia.org/wiki/Fermat's_factorization_method
      */
-    private static void fermatFactorization(Long n){
-        Long a = (long)Math.ceil(Math.sqrt(n));
+    private static void fermatFactorization(Long n) {
+        Long a = (long) Math.ceil(Math.sqrt(n));
         Long b2 = a * a - n;
-        while(!isPerfectSquare(b2)){
+        while (!isPerfectSquare(b2)) {
             a++;
             b2 = a * a - n;
         }
-        Long r1 = a - (long)Math.sqrt(b2);
-        Long r2 = n/r1;
+        Long r1 = a - (long) Math.sqrt(b2);
+        Long r2 = n / r1;
         System.out.println(String.format("The roots of {%s} are {%s}, {%s}", n, r1, r2));
     }
 }
