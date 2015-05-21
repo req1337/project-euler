@@ -17,12 +17,10 @@ public class Problem_8 {
     private final static int ADJACENT_DIGITS = 13;
 
     public static void main(String[] args) throws IOException {
-        //TODO: Fix project setup - should be Resources/numbers.txt
+        //TODO: Fix project run config - should be Resources/numbers.txt
         String d = new String(Files.readAllBytes(Paths.get("../project-euler/problem-solutions/src/Resources/numbers.txt")));
         int[] intArray = stringToIntArray(d);
-        printResult(intArray, adjacentDigitProduct(intArray));
-
-
+        System.out.println("Result:" + adjacentDigitProduct(intArray, ADJACENT_DIGITS));
     }
 
     private static int[] stringToIntArray(String d){
@@ -33,29 +31,17 @@ public class Problem_8 {
         return intArray;
     }
 
-    private static int adjacentDigitProduct(int[] d){
-        int largest = 0;
-        long product;
-        for(int i = 0; i < d.length-ADJACENT_DIGITS; i++){
-            product = i;
-            for(int j = i+1; j < i + ADJACENT_DIGITS; j++){
+    private static long adjacentDigitProduct(int[] d, int N){
+        long largest = 0, product;
+        for(int i = 0; i < d.length-N; i++){
+            product = 1;
+            for(int j = i; j < i + N; j++){
                 product *= d[j];
             }
             if(product > largest){
-                largest = i;
+                largest = product;
             }
         }
         return largest;
     }
-
-    private static void printResult(int[] d, int n){
-        Long product = 1L;
-        System.out.println(String.format("The {%s} adjacent digits with the larges product are: ", ADJACENT_DIGITS));
-        for(int i = n; i < n + ADJACENT_DIGITS; i++){
-           product *= d[i];
-            System.out.print(d[i] + " ");
-        }
-        System.out.print(" = " + product);
-    }
-
 }
