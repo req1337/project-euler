@@ -8,7 +8,7 @@
  */
 public class Problem_7 {
 
-    private static int TARGET = 10001;
+    private static int TARGET = 10_001;
 
     public static void main(String[] args) {
         System.out.println(String.format("Prime number number {%s} is {%s}", TARGET, generateNthPrimeNumber(TARGET)));

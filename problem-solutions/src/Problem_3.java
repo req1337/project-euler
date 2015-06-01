@@ -15,7 +15,7 @@ import static Utils.MathUtils.isPerfectSquare;
 public class Problem_3 {
 
     private static final Long TEST_NUMBER = 13195L;
-    private static final Long NUMBER = 600851475143L;
+    private static final Long NUMBER = 600_851_475_143L;
 
     public static void main(String[] args) {
         System.out.println(String.format("The largest prime factor of {%s} is {%s}", TEST_NUMBER, primeFactor(TEST_NUMBER)));

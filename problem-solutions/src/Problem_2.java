@@ -10,7 +10,7 @@
  */
 public class Problem_2 {
 
-    private static final int LIMIT = 4000000;
+    private static final int LIMIT = 4_000_000;
 
     public static void main(String[] args) {
         System.out.println("The solution to Problem 2 is: " + calculateSumEvenFibonacci());
