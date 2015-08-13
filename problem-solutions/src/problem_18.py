@@ -19,6 +19,7 @@ class BinaryTree:
     """
 
     def __init__(self, value):
+        self.max = 0
         self.left = None
         self.right = None
         self.value = int(value)
@@ -36,9 +37,11 @@ class BinaryTree:
 
     def maxPathSum(self, sum):
         sum += self.value
-        if self.isLeaf():
+        # If node a leaf node or has already been visited from a path with a greater sum
+        if self.isLeaf() or sum < self.max:
             return sum
         else:
+            self.max = sum
             return max(self.left.maxPathSum(sum), self.right.maxPathSum(sum))
 
 
@@ -53,6 +56,7 @@ def load_data(path):
 
 def construct_binary_tree(data):
     """
+      TODO: Simplify
       Build a binary tree representation of the rectangle
     """
     root = BinaryTree(data[0][0])
