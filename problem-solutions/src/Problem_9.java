@@ -13,21 +13,22 @@ public class Problem_9 {
     final static int PRODUCT = 1000;
 
     public static void main(String[] args) {
+        findSpecialPythagoreanTriplet(PRODUCT);
+    }
 
-        int c;
-
-        OUTERLOOP: for (int a = 1; a < PRODUCT; a++) {
-            for (int b = a + 1; b <= PRODUCT; b++) {
-                c = PRODUCT - b - a;
-                if (isPythogoreanTriplet(a, b, c)) {
+    private static void findSpecialPythagoreanTriplet(int N){
+        for (int a = 1; a < N; a++) {
+            for (int b = a + 1; b <= N; b++) {
+                int c = N - b - a;
+                if (isPythagoreanTriplet(a, b, c)) {
                     System.out.println(a + " " + b + " " + c);
-                    break OUTERLOOP;
+                    return;
                 }
             }
         }
     }
 
-    private static boolean isPythogoreanTriplet(int a, int b, int c) {
+    private static boolean isPythagoreanTriplet(int a, int b, int c) {
         return Math.pow(a, 2) + Math.pow(b, 2) == Math.pow(c, 2);
     }
 

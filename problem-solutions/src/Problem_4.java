@@ -18,13 +18,11 @@ public class Problem_4 {
             for (int j = i; j <= MAX; j++) {
                 p = i * j;
                 if (isPalindrome(p)) {
-                    if (p > m) {
-                        m = p;
-                    }
+                    m = Math.max(p, m);
                 }
             }
         }
-        System.out.println("The largest palindrome is:" + m);
+        System.out.println("The largest palindrome is: " + m);
     }
 
     /**

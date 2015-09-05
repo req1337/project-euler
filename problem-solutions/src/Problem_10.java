@@ -13,6 +13,7 @@ public class Problem_10 {
 
     /**
      * Reused the code from Problem 7
+     *
      * @param args
      */
     public static void main(String[] args) {
@@ -31,8 +32,9 @@ public class Problem_10 {
 
     private static boolean isPrime(long n) {
         for (long i = 3; i * i <= n; i += 2) {
-            if (n % i == 0)
+            if (n % i == 0) {
                 return false;
+            }
         }
         return true;
     }

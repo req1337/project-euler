@@ -12,7 +12,6 @@ import java.nio.file.Paths;
  */
 public class Problem_11 {
 
-
     private final static int GRID_MAX_ROW = 20, GRID_MAX_COL = 20, ADJACENT = 4;
 
     public static void main(String[] args) throws IOException {
@@ -23,41 +22,41 @@ public class Problem_11 {
 
         int max = 0, tempProduct;
 
-        for(int col = 0; col < GRID_MAX_COL; col++){
-            for(int row = 0; row < GRID_MAX_ROW; row++){
+        for (int col = 0; col < GRID_MAX_COL; col++) {
+            for (int row = 0; row < GRID_MAX_ROW; row++) {
 
                 //Check horizontal forward
-                if(row < GRID_MAX_ROW - ADJACENT){
+                if (row < GRID_MAX_ROW - ADJACENT) {
                     tempProduct = grid[col][row];
-                    for(int i = 1; i < ADJACENT; i++){
+                    for (int i = 1; i < ADJACENT; i++) {
                         tempProduct *= grid[col][row + i];
                     }
                     max = Math.max(max, tempProduct);
                 }
 
                 //Check vertical downward
-                if(col < GRID_MAX_COL - ADJACENT){
+                if (col < GRID_MAX_COL - ADJACENT) {
                     tempProduct = grid[col][row];
-                    for(int i = 1; i < ADJACENT; i++){
-                        tempProduct *= grid[col+i][row];
+                    for (int i = 1; i < ADJACENT; i++) {
+                        tempProduct *= grid[col + i][row];
                     }
                     max = Math.max(max, tempProduct);
                 }
 
                 //Check diagonally forward-upward
-                if((col < GRID_MAX_COL - ADJACENT) && (row >= ADJACENT)){
+                if ((col < GRID_MAX_COL - ADJACENT) && (row >= ADJACENT)) {
                     tempProduct = grid[col][row];
-                    for(int i = 1; i < ADJACENT; i++){
-                        tempProduct *= grid[col+i][row-i];
+                    for (int i = 1; i < ADJACENT; i++) {
+                        tempProduct *= grid[col + i][row - i];
                     }
                     max = Math.max(max, tempProduct);
                 }
 
                 //Check diagonally forward-downward
-                if((row < GRID_MAX_ROW - ADJACENT) && (col < GRID_MAX_COL - ADJACENT)){
+                if ((row < GRID_MAX_ROW - ADJACENT) && (col < GRID_MAX_COL - ADJACENT)) {
                     tempProduct = grid[col][row];
-                    for(int i = 1; i < ADJACENT; i++){
-                        tempProduct *= grid[col+i][row+i];
+                    for (int i = 1; i < ADJACENT; i++) {
+                        tempProduct *= grid[col + i][row + i];
                     }
                     max = Math.max(max, tempProduct);
                 }
